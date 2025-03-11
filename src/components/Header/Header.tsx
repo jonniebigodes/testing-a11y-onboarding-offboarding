@@ -142,14 +142,19 @@ export const HeaderComponent = ({
         <OptionsContainer>
           <span className="navigation-items">
             <ThemeToggle />
-            <Link to="/" tabIndex={-1}>
+            <Link to="/" tabIndex={-1} aria-hidden="true">
               <Button clear>Home</Button>
             </Link>
-            <Link to="/categories" tabIndex={-1}>
+            <Link to="/categories" tabIndex={-1} aria-hidden="true">
               <Button clear>All restaurants</Button>
             </Link>
           </span>
-          <Button aria-label="food cart" icon="cart" onClick={toggleCartVisibility}>
+          <Button
+            aria-label="food cart"
+            icon="cart"
+            onClick={toggleCartVisibility}
+            aria-hidden="true"
+          >
             {totalPrice > 0 && (
               <>
                 <CartText type="span">Order</CartText>
@@ -165,6 +170,7 @@ export const HeaderComponent = ({
           cartItems={cartItems}
           totalPrice={totalPrice}
           onItemChange={saveItem}
+          aria-hidden="true"
         />
       </>
     )}
