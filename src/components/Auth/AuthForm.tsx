@@ -171,12 +171,16 @@ export const LoginForm: React.FC<{}> = () => {
     <FormWrapper onSubmit={handleSubmit}>
       <InputWithTooltip>
         <Label htmlFor="email">Email</Label>
-        <ToolTip id="emailtooltip">Enter a valid email address</ToolTip>
+        <ToolTip id="emailtooltip" aria-description="email tooltip">
+          Enter a valid email address
+        </ToolTip>
         <InputWrapper>
           <Input
             id="email"
             name="email"
             required
+            aria-required="true"
+            aria-label="email"
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -186,12 +190,16 @@ export const LoginForm: React.FC<{}> = () => {
       </InputWithTooltip>
       <InputWithTooltip>
         <Label htmlFor="password">Password</Label>
-        <ToolTip id="tooltip-password">Must be at least 16 characters long</ToolTip>
+        <ToolTip id="tooltip-password" aria-description="password tooltip">
+          Must be at least 16 characters long
+        </ToolTip>
         <InputWrapper>
           <Input
             id="password"
             name="password"
             required
+            aria-required="true"
+            aria-label="password"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -200,7 +208,12 @@ export const LoginForm: React.FC<{}> = () => {
         </InputWrapper>
       </InputWithTooltip>
       <SubmitButton type="submit">Login</SubmitButton>
-      <ErrorMessage visible={error} id="login-status">
+      <ErrorMessage
+        visible={error}
+        aria-description="login status"
+        id="login-status"
+        aria-label="login-status"
+      >
         Invalid email or password. Check the email and password requirements and try again.
       </ErrorMessage>
     </FormWrapper>
